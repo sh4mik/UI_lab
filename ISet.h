@@ -8,7 +8,7 @@ public:
 	virtual~ISet() = 0;
 	virtual ERR_CODES insert(const IVector* pVector) = 0;
 	virtual ERR_CODES get(IVector*& pVector, size_t index)const = 0;
-	virtual ERR_CODES get(IVector*& pVector, IVector const* pSample, IVector::NORM norm, double tolerance) = 0;
+	virtual ERR_CODES get(IVector*& pVector, IVector const* pSample, IVector::NORM norm, double tolerance)const = 0;
 	virtual size_t getDim() const = 0; //space dimension
 	virtual size_t getSize() const = 0; //num elements in set
 	virtual void clear() = 0; // delete all
