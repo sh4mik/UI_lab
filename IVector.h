@@ -24,9 +24,9 @@ public:
     static IVector* sub(IVector const* pOperand1, IVector const* pOperand2, ILogger* pLogger);
     static IVector* mul(IVector const* pOperand1, double scaleParam, ILogger* pLogger);
     static double mul(IVector const* pOperand1, IVector const* pOperand2, ILogger* pLogger);
-    static ERR_CODES equals(IVector const* pOperand1, IVector const* pOperand2, NORM norm, double tolerance, bool* result, ILogger* pLogger);
+    static RESULT_CODE equals(IVector const* pOperand1, IVector const* pOperand2, NORM norm, double tolerance, bool* result, ILogger* pLogger);
     virtual double getCoord(size_t index)const = 0;
-    virtual ERR_CODES setCoord(size_t index, double value) = 0;
+    virtual RESULT_CODE setCoord(size_t index, double value) = 0;
     static double norm(IVector const* pVector, NORM norm, ILogger* pLogger);
     virtual size_t getDim() const = 0;
 protected:
