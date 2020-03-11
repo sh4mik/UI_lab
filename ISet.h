@@ -15,8 +15,10 @@ public:
 	virtual ERR_CODES erase(size_t index) = 0;
 	virtual ERR_CODES erase(IVector const* pSample, IVector::NORM norm, double tolerance) = 0;
 	virtual ISet* clone()const = 0;
-	static ISet* add(ISet const* pOperand1, ISet const* pOperand2, ILogger* pLogger);
+	static ISet* add(ISet const* pOperand1, ISet const* pOperand2, IVector::NORM norm, double tolerance, ILogger* pLogger);
 	static ISet* intersect(ISet const* pOperand1, ISet const* pOperand2, IVector::NORM norm, double tolerance, ILogger* pLogger);
+        static ISet* sub(ISet const* pOperand1, ISet const* pOperand2, IVector::NORM norm, double tolerance, ILogger* pLogger);
+	static ISet* symSub(ISet const* pOperand1, ISet const* pOperand2, IVector::NORM norm, double tolerance, ILogger* pLogger);
 protected:
 	ISet() = default;
 private:
