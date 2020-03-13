@@ -8,7 +8,9 @@ enum class RESULT_CODE {
     DIVISION_BY_ZERO,
     NAN_VALUE,
     FILE_ERROR,
-    OUT_OF_BOUNDS
+    OUT_OF_BOUNDS,
+    NOT_FOUND,
+    WRONG_ARGUMENT
 };
 
 #endif //RC_H
