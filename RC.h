@@ -10,7 +10,8 @@ enum class RESULT_CODE {
     FILE_ERROR,
     OUT_OF_BOUNDS,
     NOT_FOUND,
-    WRONG_ARGUMENT
+    WRONG_ARGUMENT,
+    CALCULATION_ERROR
 };
 
 #endif //RC_H
