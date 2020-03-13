@@ -7,7 +7,8 @@ enum class RESULT_CODE {
     WRONG_DIM,
     DIVISION_BY_ZERO,
     NAN_VALUE,
-    FILE_ERROR
+    FILE_ERROR,
+    OUT_OF_BOUNDS
 };
 
 #endif //RC_H
