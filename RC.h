@@ -6,8 +6,8 @@ enum class RESULT_CODE {
     BAD_REFERENCE,
     WRONG_DIM,
     DIVISION_BY_ZERO,
-    NAN_VALUE
-    
+    NAN_VALUE,
+    FILE_ERROR
 };
 
 #endif //RC_H
