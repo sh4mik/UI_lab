@@ -6,7 +6,7 @@ class ISet {
 public:
 	static ISet* createSet(ILogger* pLogger);
 	virtual~ISet() = 0;
-	virtual RESULT_CODE insert(const IVector* pVector) = 0;
+	virtual RESULT_CODE insert(const IVector* pVector,IVector::NORM norm, double tolerance) = 0;
 	virtual RESULT_CODE get(IVector*& pVector, size_t index)const = 0;
 	virtual RESULT_CODE get(IVector*& pVector, IVector const* pSample, IVector::NORM norm, double tolerance)const = 0;
 	virtual size_t getDim() const = 0; //space dimension
