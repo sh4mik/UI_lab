@@ -3,9 +3,9 @@
 
 class IVector;
 
-#include "SHARED_EXPORT.h"
+#include "ILogger.h"
 
-class SHARED_EXPORT ICompact
+class ICompact
 {
 public:
     enum InterfaceTypes
@@ -17,14 +17,14 @@ public:
     virtual int getId() const = 0;
 
     /*factories*/
-    static ICompact* createCompact(IVector const* const begin, IVector const* const end);
+    static ICompact* createCompact(IVector const* const begin, IVector const* const end,IVector const*const step, ILogger*logger);
 
     /*operations*/
-    virtual int Intersection(ICompact const& c) = 0;
-    virtual int Union(ICompact const& c) = 0;
-    virtual int Difference(ICompact const& c) = 0;
-    virtual int SymDifference(ICompact const& c) = 0;
-    virtual int MakeConvex() = 0;
+    virtual RESULT_CODE Intersection(ICompact const& c) = 0;
+    virtual RESULT_CODE Union(ICompact const& c) = 0;
+    virtual RESULT_CODE Difference(ICompact const& c) = 0;
+    virtual RESULT_CODE SymDifference(ICompact const& c) = 0;
+    virtual RESULT_CODE MakeConvex() = 0;
 
     /*static operations*/
     static ICompact* Intersection(ICompact const* const left, ICompact const* const right);
@@ -39,10 +39,10 @@ public:
     virtual iterator* end(IVector const* const step = 0) = 0;
     virtual iterator* begin(IVector const* const step = 0) = 0;
 
-    virtual int isContains(IVector const* const vec, bool& result) const = 0;
-    virtual int isSubSet(ICompact const* const other) = 0;
-    virtual int isSimplyConn(bool& result) = 0;
-    virtual int isIntersects(ICompact const* const other, bool& result) = 0;
+    virtual RESULT_CODE isContains(IVector const* const vec, bool& result) const = 0;
+    virtual RESULT_CODE isSubSet(ICompact const* const other,bool& result) = 0;
+    virtual RESULT_CODE isSimplyConn(bool& result) = 0;
+    virtual RESULT_CODE isIntersects(ICompact const* const other, bool& result) = 0;
 
     virtual ICompact* clone() const = 0;
 
@@ -53,10 +53,10 @@ public:
     {
     public:
         //adds step to current value in iterator
-        virtual int doStep() = 0;
+        virtual RESULT_CODE doStep() = 0;
 
         //change step
-        virtual int setDirection(IVector const* const dir) = 0;
+        virtual RESULT_CODE setDirection(IVector const* const dir) = 0;
 
 
     protected:
