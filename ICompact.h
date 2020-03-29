@@ -17,7 +17,11 @@ public:
     virtual int getId() const = 0;
 
     /*factories*/
+<<<<<<< HEAD
     static ICompact* createCompact(IVector const* const begin, IVector const* const end,IVector const*const step, ILogger*logger);
+=======
+    static ICompact* createCompact(IVector const* const begin, IVector const* const end, IVector const* const step);
+>>>>>>> dfb93cea2e5038262e4c089cffefd97acb06b562
 
     /*operations*/
     virtual RESULT_CODE Intersection(ICompact const& c) = 0;
