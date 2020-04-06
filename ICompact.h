@@ -28,11 +28,11 @@ public:
     virtual RESULT_CODE MakeConvex() = 0;
 
     /*static operations*/
-    static ICompact* Intersection(ICompact const* const left, ICompact const* const right);
-    static ICompact* Union(ICompact const* const left, ICompact const* const right);
-    static ICompact* Difference(ICompact const* const left, ICompact const* const right);
-    static ICompact* SymDifference(ICompact const* const left, ICompact const* const right);
-    static ICompact* MakeConvex(ICompact const* const left, ICompact const* const right);
+    static ICompact* Intersection(ICompact const* const left, ICompact const* const right, ILogger*logger);
+    static ICompact* Union(ICompact const* const left, ICompact const* const right, ILogger*logger);
+    static ICompact* Difference(ICompact const* const left, ICompact const* const right, ILogger*logger);
+    static ICompact* SymDifference(ICompact const* const left, ICompact const* const right, ILogger*logger);
+    static ICompact* MakeConvex(ICompact const* const left, ICompact const* const right, ILogger*logger);
 
     /* returns a step with which you can iterate over all domains of compact*/
     virtual IVector* getStep() const = 0;
