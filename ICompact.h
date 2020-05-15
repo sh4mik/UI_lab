@@ -48,7 +48,7 @@ public:
     virtual ICompact* clone() const = 0;
 
     /*dtor*/
-    virtual ~ICompact() = default;
+    virtual ~ICompact() = 0;
 
     class iterator
     {
@@ -73,7 +73,6 @@ public:
     };
 protected:
     ICompact() = default;
-    virtual ~ICompact();
 
 private:
     /*non default copyable*/
