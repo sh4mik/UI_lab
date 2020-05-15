@@ -28,17 +28,17 @@ public:
     virtual RESULT_CODE MakeConvex() = 0;
 
     /*static operations*/
-    static ICompact* Intersection(ICompact const* const left, ICompact const* const right);
-    static ICompact* Union(ICompact const* const left, ICompact const* const right);
-    static ICompact* Difference(ICompact const* const left, ICompact const* const right);
-    static ICompact* SymDifference(ICompact const* const left, ICompact const* const right);
-    static ICompact* MakeConvex(ICompact const* const left, ICompact const* const right);
+    static ICompact* Intersection(ICompact const* const left, ICompact const* const right, ILogger*logger);
+    static ICompact* Union(ICompact const* const left, ICompact const* const right, ILogger*logger);
+    static ICompact* Difference(ICompact const* const left, ICompact const* const right, ILogger*logger);
+    static ICompact* SymDifference(ICompact const* const left, ICompact const* const right, ILogger*logger);
+    static ICompact* MakeConvex(ICompact const* const left, ICompact const* const right, ILogger*logger);
 
     /* returns a step with which you can iterate over all domains of compact*/
     virtual IVector* getStep() const = 0;
 
-    virtual iterator* end(IVector const* const step = 0) = 0;
-    virtual iterator* begin(IVector const* const step = 0) = 0;
+    virtual ILogger* end(IVector const* const step = 0) = 0;
+    virtual ILogger* begin(IVector const* const step = 0) = 0;
 
     virtual RESULT_CODE isContains(IVector const* const vec, bool& result) const = 0;
     virtual RESULT_CODE isSubSet(ICompact const* const other,bool& result) = 0;
@@ -71,6 +71,9 @@ public:
         iterator(const iterator& other) = delete;
         void operator=( const iterator& other) = delete;
     };
+protected:
+    ICompact() = default;
+    virtual ~ICompact();
 
 private:
     /*non default copyable*/
