@@ -8,6 +8,7 @@ class IVector;
 class ICompact
 {
 public:
+    class iterator;
     enum InterfaceTypes
     {
         INTERFACE_0,
@@ -37,8 +38,8 @@ public:
     /* returns a step with which you can iterate over all domains of compact*/
     virtual IVector* getStep() const = 0;
 
-    virtual ILogger* end(IVector const* const step = 0) = 0;
-    virtual ILogger* begin(IVector const* const step = 0) = 0;
+    virtual iterator* end(IVector const* const step = 0) = 0;
+    virtual iterator* begin(IVector const* const step = 0) = 0;
 
     virtual RESULT_CODE isContains(IVector const* const vec, bool& result) const = 0;
     virtual RESULT_CODE isSubSet(ICompact const* const other,bool& result) = 0;
@@ -48,7 +49,7 @@ public:
     virtual ICompact* clone() const = 0;
 
     /*dtor*/
-    virtual ~ICompact() = 0;
+    virtual ~ICompact() = default;
 
     class iterator
     {
@@ -73,6 +74,7 @@ public:
     };
 protected:
     ICompact() = default;
+    virtual ~ICompact();
 
 private:
     /*non default copyable*/
