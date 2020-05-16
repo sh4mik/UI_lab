@@ -2,7 +2,6 @@
 #define ICOMPACT_H
 
 class IVector;
-
 #include "ILogger.h"
 
 class ICompact
@@ -56,7 +55,7 @@ public:
 
 
     protected:
-        iterator(IVector const* const step);
+        iterator() = default;
 
         /*dtor*/
         virtual ~iterator() = default;
