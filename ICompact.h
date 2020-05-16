@@ -48,7 +48,7 @@ public:
         //adds step to current value in iterator
         virtual RESULT_CODE doStep() = 0;
 
-        virtual IVector* getPoint() = 0;
+        virtual IVector* getPoint() const = 0;
 
         //change step
         virtual RESULT_CODE setDirection(IVector const* const dir) = 0;
