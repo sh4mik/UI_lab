@@ -37,6 +37,7 @@ public:
     virtual RESULT_CODE isSubSet(ICompact const* const other,bool& result) const = 0;
     virtual RESULT_CODE isIntersects(ICompact const* const other, bool& result) const = 0;
 
+    virtual size_t getDim() const = 0;
     virtual ICompact* clone() const = 0;
 
     /*dtor*/
