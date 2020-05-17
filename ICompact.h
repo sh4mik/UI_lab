@@ -3,7 +3,7 @@
 
 class IVector;
 #include "ILogger.h"
-
+#include<stddef.h>
 class ICompact
 {
 public:
@@ -54,13 +54,12 @@ public:
         //change step
         virtual RESULT_CODE setDirection(IVector const* const dir) = 0;
 
-
+        /*dtor*/
+        virtual ~iterator() = default;
     protected:
         iterator() = default;
 
-        /*dtor*/
-        virtual ~iterator() = default;
-
+       
     private:
         /*non default copyable*/
         iterator(const iterator& other) = delete;
