@@ -11,7 +11,7 @@ public:
 
     /*factories*/
 
-    static ICompact* createCompact(IVector const* const begin, IVector const* const end,IVector const*const step, ILogger*logger);
+    static ICompact* createCompact(IVector const* const begin, IVector const* const end, ILogger*logger);
 
     /*static operations*/
     static ICompact* intersection(ICompact const* const left, ICompact const* const right, ILogger*logger);
@@ -26,7 +26,6 @@ public:
     static ICompact* makeConvex(ICompact const* const left, ICompact const* const right, ILogger*logger);
 
     /* returns a step, end, begin with which you can iterate over all domains of compact*/
-    virtual IVector* getStep() const = 0;
     virtual IVector* getBegin() const = 0;
     virtual IVector* getEnd() const = 0;
 
@@ -47,6 +46,7 @@ public:
     {
     public:
         //adds step to current value in iterator
+        //+step
         virtual RESULT_CODE doStep() = 0;
 
         virtual IVector* getPoint() const = 0;
