@@ -1,6 +1,6 @@
 #ifndef IBROCKER_H
 #define IBROCKER_H
-
+#include "ILogger.h"
 #include "RC.h"
 
 class IBrocker
@@ -12,7 +12,7 @@ public:
         DIMENSION_INTERFACE_IMPL
     };
 
-    enum Type
+    enum class Type
     {
         PROBLEM,
         SOLVER,
@@ -20,8 +20,8 @@ public:
     };
 
 
-    virtual bool canCastTo(Type type) const = 0;
-    virtual void* getInterfaceImpl(Type type) const = 0;
+    virtual Type getType() const = 0;
+    virtual void* getInterfaceImpl(Type type, ILogger* logger) const = 0;
     virtual RESULT_CODE release() = 0; // harakiri
 
 protected:

@@ -31,7 +31,6 @@ public:
 
     virtual iterator* end(IVector const* const step = 0) = 0;
     virtual iterator* begin(IVector const* const step = 0) = 0;
-    virtual iterator* createIterator(IVector const* const begin, IVector const* const step = 0) = 0;
 
     virtual RESULT_CODE isContains(IVector const* const vec, bool& result) const = 0;
     virtual RESULT_CODE isSubSet(ICompact const* const other,bool& result) const = 0;
@@ -52,7 +51,7 @@ public:
 
         virtual IVector* getPoint() const = 0;
 
-        //change step
+        //change order of step
         virtual RESULT_CODE setDirection(IVector const* const dir) = 0;
 
         /*dtor*/

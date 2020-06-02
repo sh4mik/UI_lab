@@ -20,6 +20,8 @@ public:
     virtual RESULT_CODE setProblemParams(IVector const* params) = 0;
     virtual RESULT_CODE setCompact(ICompact * pCompact) = 0;
 
+    virtual size_t getParamsDim() const = 0;
+
     virtual RESULT_CODE solve() = 0;
     virtual RESULT_CODE getSolution(IVector * &vec)const = 0;
 
