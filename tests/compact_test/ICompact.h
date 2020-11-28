@@ -11,19 +11,19 @@ public:
 
     /*factories*/
 
-    static ICompact* createCompact(IVector const* const begin, IVector const* const end, ILogger*logger);
+    static ICompact* createCompact(IVector const* const begin, IVector const* const end, ILogger* logger);
 
     /*static operations*/
-    static ICompact* intersection(ICompact const* const left, ICompact const* const right, ILogger*logger);
-    
+    static ICompact* intersection(ICompact const* const left, ICompact const* const right, ILogger* logger);
+
     //union
-    static ICompact* add(ICompact const* const left, ICompact const* const right, ILogger*logger);
+    static ICompact* add(ICompact const* const left, ICompact const* const right, ILogger* logger);
 
     //methods kill closed!!!
     //static ICompact* Difference(ICompact const* const left, ICompact const* const right, ILogger*logger);
     //static ICompact* SymDifference(ICompact const* const left, ICompact const* const right, ILogger*logger);
 
-    static ICompact* makeConvex(ICompact const* const left, ICompact const* const right, ILogger*logger);
+    static ICompact* makeConvex(ICompact const* const left, ICompact const* const right, ILogger* logger);
 
     /* returns a step, end, begin with which you can iterate over all domains of compact*/
     virtual IVector* getBegin() const = 0;
@@ -33,7 +33,7 @@ public:
     virtual iterator* begin(IVector const* const step = 0) = 0;
 
     virtual RESULT_CODE isContains(IVector const* const vec, bool& result) const = 0;
-    virtual RESULT_CODE isSubSet(ICompact const* const other,bool& result) const = 0;
+    virtual RESULT_CODE isSubSet(ICompact const* const other, bool& result) const = 0;
     virtual RESULT_CODE isIntersects(ICompact const* const other, bool& result) const = 0;
 
     virtual size_t getDim() const = 0;
@@ -59,11 +59,11 @@ public:
     protected:
         iterator() = default;
 
-       
+
     private:
         /*non default copyable*/
         iterator(const iterator& other) = delete;
-        void operator=( const iterator& other) = delete;
+        void operator=(const iterator& other) = delete;
     };
 protected:
     ICompact() = default;
@@ -71,7 +71,8 @@ protected:
 private:
     /*non default copyable*/
     ICompact(const ICompact& other) = delete;
-    void operator=( const ICompact& other) = delete;
+    void operator=(const ICompact& other) = delete;
 };
 
 #endif // ICOMPACT_H
+

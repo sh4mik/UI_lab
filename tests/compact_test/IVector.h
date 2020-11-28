@@ -4,12 +4,6 @@
 
 #include<stddef.h>
 #include "ILogger.h"
-
-
-
-
-
-
 class IVector {
 public:
     enum class NORM {
@@ -27,7 +21,7 @@ public:
     static RESULT_CODE equals(IVector const* pOperand1, IVector const* pOperand2, NORM norm, double tolerance, bool* result, ILogger* pLogger);
     virtual double getCoord(size_t index)const = 0;
     virtual RESULT_CODE setCoord(size_t index, double value) = 0;
-    virtual double norm(NORM norm) const= 0;
+    virtual double norm(NORM norm)const = 0;
     virtual size_t getDim() const = 0;
 protected:
     IVector() = default;
@@ -35,6 +29,4 @@ private:
     IVector(IVector const& vector) = delete;
     IVector& operator=(IVector const& vector) = delete;
 };
-
-
 #endif // IVECTOR_H
